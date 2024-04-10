@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Sensor List</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Відфільтрований список сенсорів</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ім'я</th>
+                    <th>Порт зв'язку</th>
+                    <th>Ідентифікатор вузла</th>
+                    <th>Адреса даних</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Вставка відфільтрованого списку сенсорів -->
+                <tr th:each="sensor : ${sensors}">
+                    <td th:text="${sensor.name}"></td>
+                    <td th:text="${sensor.comport}"></td>
+                    <td th:text="${sensor.setSlaveID}"></td>
+                    <td th:text="${sensor.dataAdress}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Sensor Data</h2>
+        <table border="1">
+            <!-- Таблиця для Sensor Data -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data Name</th>
+                    <th>Address</th>
+                    <th>Number of Registers</th>
+                    <th>Command</th>
+                    <th>Data Type</th>
+                    <th>Endianness</th>
+                    <th>Coefficient</th>
+                    <th>Save To Database</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="sensorData : ${sensorData}">
+                    <td th:text="${sensorData.id}"></td>
+                    <td th:text="${sensorData.dataName}"></td>
+                    <td th:text="${sensorData.address}"></td>
+                    <td th:text="${sensorData.numberOfRegisters}"></td>
+                    <td th:text="${sensorData.command}"></td>
+                    <td th:text="${sensorData.dataType}"></td>
+                    <td th:text="${sensorData.endianness}"></td>
+                    <td th:text="${sensorData.coefficient}"></td>
+                    <td th:text="${sensorData.saveToDatabase} ? 'Yes' : 'No'"></td>
+                </tr>
+            </tbody>
+        </table>
+<h2>Modbus Slave</h2>
+        <table border="1">
+            <!-- Таблиця для Modbus Slave -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>COM Port</th>
+                    <th>Device Address</th>
+                    <th>Baud Rate</th>
+                    <th>Number of Data Bits</th>
+                    <th>Parity</th>
+                    <th>COM Port Timeouts</th>
+                    <th>Sensor Data List</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="modbusSlave : ${modbusSlaves}">
+                    <td th:text="${modbusSlave.id}"></td>
+                    <td th:text="${modbusSlave.nameModbusSlave}"></td>
+                    <td th:text="${modbusSlave.comPort}"></td>
+                    <td th:text="${modbusSlave.deviceAddress}"></td>
+                    <td th:text="${modbusSlave.baudR}"></td>
+                    <td th:text="${modbusSlave.numDataBits}"></td>
+                    <td th:text="${modbusSlave.parity}"></td>
+                    <td th:text="${modbusSlave.comPortTimeouts} ? 'Yes' : 'No'"></td>
+                    <td>
+                        <!-- Вставка списку sensorDataList -->
+                        <ul>
+                            <li th:each="sensorData : ${modbusSlave.sensorDataList}" th:text="${sensorData.dataName}"></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</table>
+
+        
+    </div>
+</body>
+
+
+</html>

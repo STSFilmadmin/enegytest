@@ -1,0 +1,1 @@
+2024-04-03 15:18:01 Error: com3 - SerialPortTimeoutException: The read operation timed out before any data was returned.

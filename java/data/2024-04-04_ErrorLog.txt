@@ -1,0 +1,7 @@
+2024-04-04 17:11:34 Error: com4 - SerialPortTimeoutException: The read operation timed out before any data was returned.
+2024-04-04 17:30:03 Error: com4 - SerialPortTimeoutException: The read operation timed out before any data was returned.
+2024-04-04 17:30:24 Error: com4 - SerialPortTimeoutException: The read operation timed out before any data was returned.
+2024-04-04 17:36:20 Error: com4 - SerialPortTimeoutException: The read operation timed out before any data was returned.
+2024-04-04 20:03:11 Error: com4 - SerialPortTimeoutException: The read operation timed out before any data was returned.
+2024-04-04 20:04:04 Error: com4 - SerialPortTimeoutException: The read operation timed out before any data was returned.
+2024-04-04 23:51:30 Error: com3 - SerialPortTimeoutException: The read operation timed out before any data was returned.
